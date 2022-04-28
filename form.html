@@ -59,15 +59,15 @@
 
                     </tr>
                 </tbody>
-               
+
                 <tfoot>
                     <tr>
-                      <th> Total Score</th>
+                        <th> Total Score</th>
                         <td id="totalScore"></td>
                     </tr>
                     <tr>
-                      <th> Average Score</th>
-                    <td id="averageScore"></td>
+                        <th> Average Score</th>
+                        <td id="averageScore"></td>
                     </tr> -->
                 </tfoot>
             </table>
@@ -83,7 +83,7 @@
             var age = document.getElementById("Age").value;
             var score = document.getElementById("Score").value;
             var totalScore = document.getElementById("totalScore").value;
-            
+
             // var averageScore =  document.getElementById("averageScore").value;
 
 
@@ -110,16 +110,16 @@
                 qualification: qualification,
 
                 age: age,
-                score: Number( score),
+                score: Number(score),
             };
             studentListArray.push(newStudent);
             console.log(studentListArray);
 
             var table = document.getElementById("studentList");
-           var currentRowsLength = table.rows.length;
-           
+            var currentRowsLength = table.rows.length;
+
             var row = table.insertRow(1);
-         var row2 = table.insertRow(currentRowsLength);
+            var row2 = table.insertRow(currentRowsLength);
             var nameCell = row.insertCell(0);
             nameCell.innerHTML = name;
             var ageCell = row.insertCell(1);
@@ -128,10 +128,10 @@
             qualificationCell.innerHTML = age;
             var scoreCell = row.insertCell(3);
             scoreCell.innerHTML = score;
-           
+
             // var totalCell = row2.insertCell(0);
             //  totalCell.innerHTML =  totalScore;
-            
+
             // // var totalCell = document.createElement('totalcell'); //Create new cell
             //  totalCell.innerHTML = 'totalScore'; //Set some thing
             //  totalScore.appendChild (totalCell); //Add it to row
@@ -141,15 +141,15 @@
             var averageScore = 0;
             for (index = 0; index < studentListArray.length; index++) {
                 var currentStudent = studentListArray[index];
-                totalScore = totalScore+currentStudent.score;
-                averageScore = totalScore/studentListArray.length;
+                totalScore = totalScore + currentStudent.score;
+                averageScore = totalScore / studentListArray.length;
             }
             console.log(document.getElementById("totalScore"))
-             document.getElementById("totalScore").innerHTML  = totalScore.toFixed(2);
-             document.getElementById("averageScore").innerHTML  = averageScore.toFixed(2);
-        //     console.log(totalScore);
-        //    console.log(averageScore, totalScore/studentListArray.length);
-         
+            document.getElementById("totalScore").innerHTML = totalScore.toFixed(2);
+            document.getElementById("averageScore").innerHTML = averageScore.toFixed(2);
+            //     console.log(totalScore);
+            //    console.log(averageScore, totalScore/studentListArray.length);
+
         }
     </script>
 
