@@ -1,0 +1,161 @@
+<html>
+
+
+<head>
+    <link rel="stylesheet" href="form.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Student List</title>
+</head>
+
+<body>
+    <div class="col-12 row">
+        <div class="col-6">
+            <form class=" g-3 form">
+                <div class="col-md-12">
+                    <label for="validationDefault01" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="Name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="col-md-12">
+                    <label for="validationDefaultUsername" class="form-label">Qualification</label>
+                    <div class="input-group">
+                        <!-- <span class="input-group-text" id="inputGroupPrepend2">@</span> -->
+                        <input type="text" class="form-control" id="Qualification"
+                            placeholder="Enter your Qualification" aria-describedby="inputGroupPrepend2" required>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="validationDefault02" class="form-label">Age</label>
+                    <input type="text" class="form-control" id="Age" required>
+                </div>
+                <div class="col-md-3   ">
+                    <label for="validationDefault02" class="form-label">Score</label>
+                    <input type="text" class="form-control" id="Score" required>
+                </div>
+
+
+                <div class="col-12 my-3">
+                    <button class="btn btn-primary" type="button" onclick="addStudent()"> Submit</button>
+                </div>
+            </form>
+            <label style="color: brown;" id="errorMessage"></label>
+        </div>
+        <div class="col-6">
+            <table class="table table-success table-striped me-5 mt-3" style="width: 600px; border: solid gray;"
+                id="studentList">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Qualification</th>
+                        <th>Age</th>
+                        <th>score</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr>
+
+                    </tr>
+                </tbody>
+               
+                <tfoot>
+                    <tr>
+                      <th> Total Score</th>
+                        <td id="totalScore"></td>
+                    </tr>
+                    <tr>
+                      <th> Average Score</th>
+                    <td id="averageScore"></td>
+                    </tr> -->
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var studentListArray = [];
+        function addStudent() {
+            var errorMessageElement = document.getElementById("errorMessage");
+            errorMessageElement.innerText = "";
+            var name = document.getElementById("Name").value;
+            var qualification = document.getElementById("Qualification").value;
+            var age = document.getElementById("Age").value;
+            var score = document.getElementById("Score").value;
+            var totalScore = document.getElementById("totalScore").value;
+            
+            // var averageScore =  document.getElementById("averageScore").value;
+
+
+            if (name == '') {
+                errorMessageElement.innerText = "Name is Required";
+                return;
+            }
+            if (qualification == '') {
+                errorMessageElement.innerText = "Qualification is Required";
+                return;
+            }
+
+            if (age == '') {
+                errorMessageElement.innerText = "Age is Required";
+                return;
+            }
+            if (score == '') {
+                errorMessageElement.innerText = "score is Required";
+                return;
+            }
+
+            var newStudent = {
+                name: name,
+                qualification: qualification,
+
+                age: age,
+                score: Number( score),
+            };
+            studentListArray.push(newStudent);
+            console.log(studentListArray);
+
+            var table = document.getElementById("studentList");
+           var currentRowsLength = table.rows.length;
+           
+            var row = table.insertRow(1);
+         var row2 = table.insertRow(currentRowsLength);
+            var nameCell = row.insertCell(0);
+            nameCell.innerHTML = name;
+            var ageCell = row.insertCell(1);
+            ageCell.innerHTML = qualification;
+            var qualificationCell = row.insertCell(2);
+            qualificationCell.innerHTML = age;
+            var scoreCell = row.insertCell(3);
+            scoreCell.innerHTML = score;
+           
+            // var totalCell = row2.insertCell(0);
+            //  totalCell.innerHTML =  totalScore;
+            
+            // // var totalCell = document.createElement('totalcell'); //Create new cell
+            //  totalCell.innerHTML = 'totalScore'; //Set some thing
+            //  totalScore.appendChild (totalCell); //Add it to row
+
+
+            var totalScore = 0;
+            var averageScore = 0;
+            for (index = 0; index < studentListArray.length; index++) {
+                var currentStudent = studentListArray[index];
+                totalScore = totalScore+currentStudent.score;
+                averageScore = totalScore/studentListArray.length;
+            }
+            console.log(document.getElementById("totalScore"))
+             document.getElementById("totalScore").innerHTML  = totalScore.toFixed(2);
+             document.getElementById("averageScore").innerHTML  = averageScore.toFixed(2);
+        //     console.log(totalScore);
+        //    console.log(averageScore, totalScore/studentListArray.length);
+         
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
