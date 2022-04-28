@@ -1,0 +1,34 @@
+.form{
+    border: 3px solid black;
+    margin: 10px;
+    padding-left: 10px;
+    width: 500px;
+}
+
+/* thead, tbody { display: block; }
+
+tbody {
+    height: 100px;     
+    overflow-y: auto;  
+    overflow-x: hidden;
+} */
+
+table ,tr td{
+    /* border:1px solid red */
+}
+tbody {
+    display:block;
+    height:300px;
+    overflow:auto;
+}
+thead,tfoot, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+thead,tfoot {
+    width: calc( 100% )
+}
+table {
+    width:400px;
+}
