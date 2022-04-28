@@ -1,4 +1,4 @@
-.form{
+.form {
     border: 3px solid black;
     margin: 10px;
     padding-left: 10px;
@@ -13,22 +13,30 @@ tbody {
     overflow-x: hidden;
 } */
 
-table ,tr td{
+table,
+tr td {
     /* border:1px solid red */
 }
+
 tbody {
-    display:block;
-    height:300px;
-    overflow:auto;
+    display: block;
+    height: 300px;
+    overflow: auto;
 }
-thead,tfoot, tbody tr {
-    display:table;
-    width:100%;
-    table-layout:fixed;
+
+thead,
+tfoot,
+tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
 }
-thead,tfoot {
-    width: calc( 100% )
+
+thead,
+tfoot {
+    width: calc(100%)
 }
+
 table {
-    width:400px;
+    width: 400px;
 }
